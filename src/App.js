@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { AddBtnContainer } from "./App.style";
+import Header from "./components/header/header.component";
+import Modal from "./components/modal/modal.component";
+import TodoList from "./components/todo-list/todo-list.component";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      {/*
+        TodoList -> Todo
+      */}
+      <TodoList />
+      {/*<Modal />*/}
+      <AddBtnContainer />
     </div>
   );
 }
