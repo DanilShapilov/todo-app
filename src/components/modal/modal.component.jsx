@@ -34,6 +34,19 @@ class Modal extends React.Component {
     hideModal();
   }
 
+  handleEnterKey(e) {
+    if (e.keyCode === 13) {
+      this.addOrUpdateTodo();
+    }
+  }
+
+  handleFocus(e) {
+    // Move cursor to the end of text area
+    const val = e.target.value;
+    e.target.value = "";
+    e.target.value = val;
+  }
+
   render() {
     const { text, hideModal, isEditMode } = this.props;
     return (
@@ -42,6 +55,8 @@ class Modal extends React.Component {
           onChange={(e) => this.handleChange(e)}
           value={text}
           autoFocus
+          onKeyDown={(e) => this.handleEnterKey(e)}
+          onFocus={(e) => this.handleFocus(e)}
         ></TextAreaContainer>
         <ButtonsContainer>
           <CustomButton onClick={() => hideModal()}>Закрыть</CustomButton>
