@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const showModalAnimation = keyframes`
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: rotate(0%);
+  }
+`;
 
 export const ModalContainer = styled.div`
   z-index: 10;
@@ -11,6 +20,7 @@ export const ModalContainer = styled.div`
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
   border-radius: 40px 40px 0px 0px;
   padding: 42px 40px;
+  animation: ${showModalAnimation} 0.3s ease-in-out;
 `;
 
 export const TextAreaContainer = styled.textarea`

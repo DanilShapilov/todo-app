@@ -1,16 +1,21 @@
 import { TodosActionTypes } from "./todos.types";
 
-export const addTodo = (todo) => ({
+export const addTodo = (text) => ({
   type: TodosActionTypes.ADD_TODO,
-  payload: todo
+  payload: text
 })
 
 export const removeTodo = (id) => ({
   type: TodosActionTypes.REMOVE_TODO,
-  payload: id
+  payload: { id }
 })
 
-export const updateTodo = ({ id, newText }) => ({
+export const updateTodo = ({ id, text }) => ({
   type: TodosActionTypes.UPDATE_TODO,
-  payload: { id, newText }
+  payload: { id, text }
+})
+
+export const toggleTodo = (id) => ({
+  type: TodosActionTypes.TOGGLE_TODO,
+  payload: { id }
 })

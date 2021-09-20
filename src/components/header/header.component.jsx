@@ -1,11 +1,27 @@
+import { connect } from "react-redux";
+import { toggleEditMode } from "../../redux/app/app.actions";
+import { hideModal } from "../../redux/modal/modal.actions";
 import CustomButton from "../custom-button/custom-button.component";
 import { HeaderContainer } from "./header.styles";
 
-const Header = () => (
+const Header = ({ isEditMode, toggleEditMode, hideModal }) => (
   <HeaderContainer>
     <h1>Сегодня</h1>
-    <CustomButton small>Править</CustomButton>
+    <CustomButton
+      onClick={() => {
+        toggleEditMode();
+        hideModal();
+      }}
+      small
+    >
+      {isEditMode ? "Отменить" : "Править"}
+    </CustomButton>
   </HeaderContainer>
 );
 
-export default Header;
+const mapDispatchToProps = (dispatch) => ({
+  toggleEditMode: () => dispatch(toggleEditMode()),
+  hideModal: () => dispatch(hideModal()),
+});
+
+export default connect(null, mapDispatchToProps)(Header);

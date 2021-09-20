@@ -31,7 +31,7 @@ const indicationDeleteStyles = css`
 `;
 
 const getIndicationStyles = (props) => {
-  if (props.editMode) {
+  if (props.isEditMode) {
     return indicationDeleteStyles;
   }
   if (props.isDone) {

@@ -4,12 +4,20 @@ import {
   TodoContainer,
 } from "./todo.styles";
 
-const Todo = () => (
-  <TodoContainer>
-    <IndicationContainer />
-    <TextContainer isDone>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quod et
-    </TextContainer>
+const Todo = ({
+  text,
+  isDone,
+  isEditMode,
+  toggleOrUpdateHandler,
+  removeHandler,
+}) => (
+  <TodoContainer onClick={toggleOrUpdateHandler}>
+    <IndicationContainer
+      onClick={removeHandler}
+      isDone={isDone}
+      isEditMode={isEditMode}
+    />
+    <TextContainer isDone={isDone}>{text}</TextContainer>
   </TodoContainer>
 );
 

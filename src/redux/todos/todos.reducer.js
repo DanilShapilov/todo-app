@@ -1,5 +1,5 @@
 import { TodosActionTypes } from "./todos.types"
-import { addTodo, removeTodo } from "./todos.utils"
+import { addTodo, removeTodo, toggleTodo, updateTodo } from "./todos.utils"
 
 const INITIAL_STATE = {
   todos: []
@@ -20,7 +20,12 @@ const todosReducer = (state = INITIAL_STATE, action) => {
     case TodosActionTypes.UPDATE_TODO:
       return {
         ...state,
-        todos: action.payload
+        todos: updateTodo(state.todos, action.payload)
+      }
+    case TodosActionTypes.TOGGLE_TODO:
+      return {
+        ...state,
+        todos: toggleTodo(state.todos, action.payload)
       }
     default:
       return state

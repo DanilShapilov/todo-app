@@ -1,7 +1,7 @@
 import { AppActionTypes } from "./app.types"
 
 const INITIAL_STATE = {
-  isEditMode: true
+  isEditMode: false
 }
 
 const appReducer = (state = INITIAL_STATE, action) => {
